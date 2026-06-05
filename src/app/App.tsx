@@ -154,7 +154,7 @@ const SIGN_COLORS: Record<SignType, string> = {
 };
 
 const WAIT_TICK_MS = 200; // ms per tick
-const MAKE_DURATION_MS = 1200; // 1.2s making lock
+const MAKE_DURATION_MS = 650; // quick making lock for successful recipes
 
 // ── Stage config (§8) ─────────────────────────────────────────────────────────
 interface StageConfig {
@@ -583,79 +583,79 @@ export default function App() {
     )
       return;
 
-    setIsMaking(true);
     const capturedSel = new Set(selected);
+
+    // Identify which dish was made before entering the making state.
+    const matchedDish = (
+      Object.keys(RECIPES) as OrderType[]
+    ).find((dish) => {
+      const r = RECIPES[dish];
+      return (
+        r.length === capturedSel.size &&
+        r.every((i) => capturedSel.has(i))
+      );
+    });
+
+    const showFail = () => {
+      const penalty = 100;
+      setCombo(0);
+      setComboToast(null);
+      if (comboToastTimer.current) {
+        clearTimeout(comboToastTimer.current);
+        comboToastTimer.current = null;
+      }
+      setCoins((n) => Math.max(0, n - penalty));
+      setFeedback({ type: "fail", coins: penalty });
+      setTimeout(() => {
+        setFeedback(null);
+        setSelected(new Set());
+      }, 900);
+
+      // Fail coin popup (use posIndex of first visible customer, or center)
+      const visibleCustomer = customersRef.current.find(
+        (c) => !leavingRef.current.has(c.id),
+      );
+      const failPosIndex = visibleCustomer
+        ? visibleCustomer.posIndex
+        : 1;
+      const failPopupId = nextId();
+      setCoinPopups((prev) => [
+        ...prev,
+        { id: failPopupId, coins: -penalty, posIndex: failPosIndex },
+      ]);
+      setTimeout(
+        () =>
+          setCoinPopups((prev) =>
+            prev.filter((p) => p.id !== failPopupId),
+          ),
+        1200,
+      );
+    };
+
+    if (!matchedDish) {
+      showFail();
+      return;
+    }
+
+    // Auto-match: longest-waiting customer who needs this dish (§6)
+    const cur = customersRef.current;
+    const lv = leavingRef.current;
+    const candidates = cur
+      .filter(
+        (c) =>
+          !lv.has(c.id) && c.pending.includes(matchedDish),
+      )
+      .sort((a, b) => b.waitProgress - a.waitProgress);
+
+    if (candidates.length === 0) {
+      showFail();
+      return;
+    }
+
+    setIsMaking(true);
 
     setTimeout(() => {
       setIsMaking(false);
-
-      // Identify which dish was made
-      const matchedDish = (
-        Object.keys(RECIPES) as OrderType[]
-      ).find((dish) => {
-        const r = RECIPES[dish];
-        return (
-          r.length === capturedSel.size &&
-          r.every((i) => capturedSel.has(i))
-        );
-      });
-
-      const showFail = () => {
-        const penalty = 100;
-        setCombo(0);
-        setComboToast(null);
-        if (comboToastTimer.current) {
-          clearTimeout(comboToastTimer.current);
-          comboToastTimer.current = null;
-        }
-        setCoins((n) => Math.max(0, n - penalty));
-        setFeedback({ type: "fail", coins: penalty });
-        setTimeout(() => {
-          setFeedback(null);
-          setSelected(new Set());
-        }, 900);
-
-        // Fail coin popup (use posIndex of first visible customer, or center)
-        const visibleCustomer = customersRef.current.find(
-          (c) => !leavingRef.current.has(c.id),
-        );
-        const failPosIndex = visibleCustomer
-          ? visibleCustomer.posIndex
-          : 1;
-        const failPopupId = nextId();
-        setCoinPopups((prev) => [
-          ...prev,
-          { id: failPopupId, coins: -penalty, posIndex: failPosIndex },
-        ]);
-        setTimeout(
-          () =>
-            setCoinPopups((prev) =>
-              prev.filter((p) => p.id !== failPopupId),
-            ),
-          1200,
-        );
-      };
-
-      if (!matchedDish) {
-        showFail();
-        return;
-      }
-
-      // Auto-match: longest-waiting customer who needs this dish (§6)
-      const cur = customersRef.current;
-      const lv = leavingRef.current;
-      const candidates = cur
-        .filter(
-          (c) =>
-            !lv.has(c.id) && c.pending.includes(matchedDish),
-        )
-        .sort((a, b) => b.waitProgress - a.waitProgress);
-
-      if (candidates.length === 0) {
-        showFail();
-        return;
-      }
-
       const match = candidates[0];
       const newCombo = comboRef.current + 1;
       // Tip based on combo: x1=10, x3=20, x5=30, x10+=50 (capped)
