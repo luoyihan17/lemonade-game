@@ -376,6 +376,9 @@ export default function App() {
   const [servedDishes, setServedDishes] = useState<
     ServedDish[]
   >([]);
+  const [successBursts, setSuccessBursts] = useState<
+    { id: number; posIndex: 0 | 1 | 2; combo: number }[]
+  >([]);
   const [isMaking, setIsMaking] = useState(false);
 
   // Refs for stale-closure-safe access
@@ -562,6 +565,7 @@ export default function App() {
     setFeedback(null);
     setLeaving(new Set());
     setServedDishes([]);
+    setSuccessBursts([]);
     setIsMaking(false);
     setGamePhase("playing");
   }
@@ -679,6 +683,19 @@ export default function App() {
       setFeedback({ type: "ok", coins: earned, posIndex: match.posIndex });
       setTimeout(() => setFeedback(null), 900);
 
+      const burstId = nextId();
+      setSuccessBursts((prev) => [
+        ...prev,
+        { id: burstId, posIndex: match.posIndex, combo: newCombo },
+      ]);
+      setTimeout(
+        () =>
+          setSuccessBursts((prev) =>
+            prev.filter((burst) => burst.id !== burstId),
+          ),
+        420,
+      );
+
       // Coin popup above customer head
       const popupId = nextId();
       setCoinPopups((prev) => [
@@ -783,6 +800,7 @@ export default function App() {
     setFeedback(null);
     setLeaving(new Set());
     setServedDishes([]);
+    setSuccessBursts([]);
     setIsMaking(false);
     setGamePhase("start");
   }
@@ -836,6 +854,12 @@ export default function App() {
         @keyframes dishLeave {
           0%   { transform: scale(1)   translateY(0);     opacity: 1; }
           100% { transform: scale(1.5) translateY(-50px); opacity: 0; }
+        }
+        @keyframes successBurst {
+          0%   { transform: scale(0.25) rotate(0deg); opacity: 0; filter: blur(0); }
+          18%  { transform: scale(0.9)  rotate(8deg); opacity: 0.95; filter: blur(0); }
+          52%  { transform: scale(1.18) rotate(-4deg); opacity: 0.75; filter: blur(0.5px); }
+          100% { transform: scale(1.65) rotate(0deg); opacity: 0; filter: blur(2px); }
         }
         @keyframes feedbackPop {
           0%   { transform: scale(0.7); opacity: 0; }
@@ -1109,6 +1133,33 @@ export default function App() {
                   style={ASSET_IMG}
                 />
               </div>
+
+              {/* ── Success burst — quick lemon flash on completed dishes ── */}
+              {successBursts.map((burst) => {
+                const size = burst.combo >= 10 ? 190 : burst.combo >= 5 ? 170 : 150;
+                return (
+                  <div
+                    key={burst.id}
+                    style={{
+                      position: "absolute",
+                      left: DISH_SLOTS[burst.posIndex].left + 60 - size / 2,
+                      top: DISH_SLOTS[burst.posIndex].top + 54 - size / 2,
+                      width: size,
+                      height: size,
+                      zIndex: 5,
+                      pointerEvents: "none",
+                      borderRadius: "50%",
+                      mixBlendMode: "screen",
+                      background:
+                        "radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(222,240,0,0.95) 18%, rgba(166,255,0,0.8) 34%, rgba(222,240,0,0.28) 58%, rgba(222,240,0,0) 72%)",
+                      boxShadow:
+                        "0 0 22px rgba(222,240,0,0.85), 0 0 46px rgba(166,255,0,0.5)",
+                      animation:
+                        "successBurst 0.42s cubic-bezier(0.16, 0.9, 0.22, 1) forwards",
+                    }}
+                  />
+                );
+              })}
 
               {/* ── Served dishes — zIndex 5 ── */}
               {servedDishes.map((dish) => (
