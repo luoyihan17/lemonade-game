@@ -168,14 +168,6 @@ const SIGN_LABELS: Record<SignType, string> = {
   ningning: "NINGNING",
   giselle: "GISELLE",
 };
-const SIGN_COLORS: Record<SignType, string> = {
-  aespa: "#00C8FF",
-  winter: "#A8D8FF",
-  karina: "#FF8FC8",
-  ningning: "#FFD700",
-  giselle: "#DEF000",
-};
-
 const WAIT_TICK_MS = 200; // ms per tick
 const MAKE_DURATION_MS = 650; // quick making lock for successful recipes
 
@@ -863,8 +855,6 @@ export default function App() {
   }
 
   // ── Render ──────────────────────────────────────────────────────────────────
-  const signImg = SIGN_IMGS[selectedSign];
-  const signColor = SIGN_COLORS[selectedSign];
   const inputsLocked = isMaking || gamePhase !== "playing";
   const showGameBackground = gamePhase === "playing";
   const backgroundFrameWidth =
