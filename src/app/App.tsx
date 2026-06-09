@@ -6,12 +6,21 @@ const SVG_ARROW =
 const SVG_BELL =
   "M1.992 22.1584H30.008C30.5536 22.1584 31.0216 21.9384 31.4144 21.5072C31.8032 21.0712 31.9984 20.5448 32 19.928C32.0008 19.3136 31.8032 18.7872 31.4144 18.3504C31.0192 17.92 30.552 17.6992 30.008 17.6992H29.8296C29.4528 14.7056 28.3608 12.0552 26.5592 9.7576C24.76 7.4584 22.5544 5.8888 19.948 5.0472V5.008C19.9936 4.744 20.016 4.5472 20.016 4.4176C20.016 3.1808 19.628 2.136 18.8448 1.2824C18.0632 0.4296 17.1152 0.0008 16.0008 0C14.8848 0 13.9448 0.4272 13.1752 1.2824C12.404 2.1368 12.0208 3.1824 12.02 4.4176C12.02 4.5472 12.0312 4.7576 12.0544 5.048C9.4448 5.8896 7.2416 7.46 5.4408 9.7584C3.6384 12.056 2.5488 14.7064 2.168 17.7H1.992C1.7312 17.7 1.476 17.7608 1.2264 17.8808C0.983573 17.9937 0.765716 18.1539 0.5856 18.352C0.402118 18.5611 0.258178 18.8018 0.1608 19.0624C0.0544 19.3416 0.0008 19.6376 0 19.9512C0 20.5544 0.1952 21.0728 0.5856 21.5072C0.9776 21.9368 1.4456 22.1584 1.992 22.1584ZM16 2.2104C16.5456 2.2104 17.0136 2.4272 17.4032 2.8624C17.7952 3.2952 17.9904 3.8144 17.992 4.4176V4.536L17.9544 4.576C17.3081 4.47216 16.6546 4.4192 16 4.4176C15.3449 4.41911 14.6908 4.47208 14.044 4.576L14.008 4.536V4.4176C14.008 3.8136 14.2048 3.2944 14.5968 2.8624C14.9872 2.4272 15.456 2.2112 16 2.2104ZM7.5728 14.0768C8.19723 12.939 9.02254 11.9237 10.0088 11.08C10.9673 10.2526 12.088 9.63465 13.2992 9.2656C13.3431 9.24115 13.3922 9.22745 13.4424 9.2256C13.4983 9.20347 13.5575 9.19076 13.6176 9.188C13.9024 9.188 14.148 9.3 14.3488 9.5232C14.5504 9.7464 14.6504 10.0176 14.6504 10.3312C14.6504 10.516 14.616 10.6856 14.5432 10.8424C14.4758 10.9964 14.3727 11.1321 14.2424 11.2384C14.1247 11.3377 13.9838 11.4057 13.8328 11.436C13.2014 11.641 12.5986 11.9257 12.0392 12.2832C10.9139 13.0016 9.98011 13.9828 9.3184 15.1424C9.2704 15.2712 9.1976 15.3928 9.1016 15.4944C9.01383 15.5955 8.90557 15.6768 8.784 15.7328C8.66089 15.7876 8.52756 15.8157 8.3928 15.8152C8.108 15.8152 7.8712 15.708 7.68 15.496C7.4928 15.288 7.3976 15.024 7.3976 14.7104C7.3976 14.4728 7.456 14.2624 7.5728 14.08V14.0768ZM30.0096 25.9416H1.992C1.4448 25.9416 0.9776 26.1608 0.5872 26.592C0.1968 27.028 0.0024 27.5544 0.0016 28.1728C0 28.7896 0.1952 29.312 0.5872 29.7496C0.9792 30.1808 1.4464 30.4 1.992 30.4H30.0088C30.5528 30.4 31.0208 30.1808 31.4136 29.7496C31.8024 29.312 31.9976 28.7904 31.9992 28.1728C32 27.5552 31.8024 27.028 31.4136 26.592C31.0184 26.1608 30.5512 25.9416 30.0096 25.9416Z";
 
-import imgBgMain from "../imports/Frame2147203725/3afccb87f6dee77c5e7f30496360bbccfcdb726e.webp";
-import imgOrderBubbleWater from "../imports/Frame2147203725/713fa80f8683887fcdee777b967491880945bd6d.webp";
-import imgCustomerLemon from "../imports/Frame2147203725/9a119eabd67ff28ad947117a460a48b3615f8c35.webp";
-import imgOrderBubbleCake from "../imports/Frame2147203725/aabe0e7d714a6c61329c2da102c5b3a9c0d1fe57.webp";
-import imgOrderBubbleTea from "../imports/Frame2147203725/b83ba1f52c134c736b7c37823eaa379725423da2.webp";
-import imgCounterFrontPng from "../imports/Frame2147203725/cc5713e309dce2bff471ab66b6fb9bed1187f658.webp";
+import imgBgMain from "../imports/bg_main.png";
+import imgOrderBubbleWater from "../imports/order_bubble_water.png";
+import imgCustomerLemon from "../imports/customer_lemon.png";
+import imgCustomerLemon01 from "../imports/customer_lemon01.png";
+import imgCustomerLemon02 from "../imports/customer_lemon02.png";
+import imgCustomerLemon03 from "../imports/customer_lemon03.png";
+import imgCustomerLemon04 from "../imports/customer_lemon04.png";
+import imgCustomerLemon05 from "../imports/customer_lemon05.png";
+import imgCustomerLemon06 from "../imports/customer_lemon06.png";
+import imgCustomerLemon07 from "../imports/customer_lemon07.png";
+import imgCustomerLemon08 from "../imports/customer_lemon08.png";
+import imgCustomerLemon09 from "../imports/customer_lemon09.png";
+import imgOrderBubbleCake from "../imports/order_bubble_cake.png";
+import imgOrderBubbleTea from "../imports/order_bubble_tea.png";
+import imgCounterFrontPng from "../imports/counter_front.png";
 import imgIngredientLemon from "../imports/Frame2147203725/855ebb18a16f1dcfa83aa285a0efa9e5d75250c2.webp";
 import imgIngredientWater from "../imports/Frame2147203725/7c4a3282301c917ae17c20995b3dceea3f1d8451.webp";
 import imgIngredientEgg from "../imports/Frame2147203725/fa818e4d3f4113fc75020047ec4fc3d1c0e797fc.webp";
@@ -29,17 +38,17 @@ import imgSignKarina from "../imports/sign_KARINA.webp";
 import imgSignWinter from "../imports/sign_WINTER.webp";
 import imgSignNingning from "../imports/sign_NINGNING.webp";
 import imgSignAespa from "../imports/sign_aespa.webp";
-import imgHomeBg from "../imports/HomePage/9b60503941feb4fbcb11f3f263c507330dcc4134.webp";
+import imgHomeBg from "../imports/HomePage.png";
 import imgCoinReward from "../imports/Coin.webp";
 import imgResultBg from "../imports/resultbg.webp";
 import imgButtonSupport from "../imports/button_support.webp";
-import imgCustomerSmall from "../imports/customersmall.webp";
+import imgCustomerSmall from "../imports/customersmall.png";
 import imgFoodSmall from "../imports/foodsmall.webp";
 import imgLemonSmall from "../imports/lemonsmall.webp";
 import imgBarcode from "../imports/barcode.webp";
-import imgEmotionHappy from "../imports/emotion_happy.webp";
-import imgEmotionNormal from "../imports/emotion_normal.webp";
-import imgEmotionAngry from "../imports/emotion_angry.webp";
+import imgEmotionHappy from "../imports/emotion_happy.png";
+import imgEmotionNormal from "../imports/emotion_normal.png";
+import imgEmotionAngry from "../imports/emotion_angry.png";
 import imgCombos from "../imports/Combos.webp";
 
 // ── Small sign previews (shown in header when a sign is selected) ─────────────
@@ -50,7 +59,7 @@ import imgSignNingningSmall from "../imports/sign_NINGNINGsmall.webp";
 import imgSignAespaSmall from "../imports/sign_aespasmall.webp";
 
 // ── Frame2147203905: sign select screen ───────────────────────────────────────
-import imgSignSelectBg from "../imports/Frame2147203905/4ff21df11c5b1fbdc84b3fc89b96e9d1d5457472.webp";
+import imgSignSelectBg from "../imports/Frame2147203905/4ff21df11c5b1fbdc84b3fc89b96e9d1d5457472.png";
 import imgSignSlimeDrip from "../imports/Frame2147203905/9d605782a4bfa8c81a18e3902c84856e586b1942.webp";
 import imgSignKarinAchoice from "../imports/Frame2147203905/dc583622675ec4d43d4af219faa6cf237d7e76e4.png";
 import imgSignWinterchoice from "../imports/Frame2147203905/da4313fea9eb7d44cfc55506f8082b7c9aa29643.png";
@@ -74,12 +83,14 @@ type SignType =
   | "giselle";
 type IngredientType = "lemon" | "water" | "egg" | "tea";
 type OrderType = "lemon_water" | "lemon_tea" | "lemon_cake";
+type CustomerVariant = number;
 
 interface CustomerData {
   id: number;
   orders: OrderType[]; // original orders (1 or 2)
   pending: OrderType[]; // unfulfilled orders
   posIndex: 0 | 1 | 2;
+  variant: CustomerVariant;
   enterPhase: 0 | 1 | 2; // 0=entering, 1=emotion shown, 2=bubble shown
   waitProgress: number; // 0–100; 100 = angry leave
 }
@@ -112,6 +123,18 @@ const ORDER_TYPES: OrderType[] = [
   "lemon_tea",
   "lemon_cake",
 ];
+const CUSTOMER_IMGS = [
+  imgCustomerLemon,
+  imgCustomerLemon01,
+  imgCustomerLemon02,
+  imgCustomerLemon03,
+  imgCustomerLemon04,
+  imgCustomerLemon05,
+  imgCustomerLemon06,
+  imgCustomerLemon07,
+  imgCustomerLemon08,
+  imgCustomerLemon09,
+] as const;
 
 // Sign images shown in game header (top-left during gameplay)
 const SIGN_IMGS: Record<SignType, string> = {
@@ -298,6 +321,17 @@ const ASSET_IMG: React.CSSProperties = {
   pointerEvents: "none",
 };
 
+const DESIGN_WIDTH = 750;
+const DESIGN_HEIGHT = 1680;
+const BG_WIDTH = 1680;
+const BG_HEIGHT = 1680;
+const COUNTER_TOP = 600;
+const COUNTER_HEIGHT = 1049;
+const HOME_WIDTH = 1560;
+const STAGE_BASE_WIDTH = 390;
+const STAGE_BASE_HEIGHT = 844;
+const STAGE_MAX_WIDTH = 430;
+
 // ── Component ──────────────────────────────────────────────────────────────────
 export default function App() {
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -312,13 +346,19 @@ export default function App() {
       setIsLandscape(window.innerWidth > window.innerHeight);
       const el = wrapperRef.current;
       if (!el) return;
-      const w = el.clientWidth,
-        h = el.clientHeight;
+      const w = el.clientWidth;
+      const h = el.clientHeight;
       if (!w || !h) return;
-      // Scale to fit all content in one screen without scrolling
-      // Use the smaller of width/height ratios to ensure nothing is clipped
-      const finalScale = Math.min(w / 750, h / 1680);
-      const left = Math.max(0, (w - 750 * finalScale) / 2);
+      const baseW = Math.min(w, STAGE_BASE_WIDTH);
+      const baseH = Math.min(h, STAGE_BASE_HEIGHT);
+      const finalScale = Math.min(
+        baseW / DESIGN_WIDTH,
+        baseH / DESIGN_HEIGHT,
+      );
+      const left = Math.max(
+        0,
+        (w - DESIGN_WIDTH * finalScale) / 2,
+      );
       setLayout((prev) =>
         Math.abs(prev.scale - finalScale) < 0.0001 &&
         Math.abs(prev.offsetLeft - left) < 0.5
@@ -418,15 +458,30 @@ export default function App() {
     id: number,
     orders: OrderType[],
     posIndex: 0 | 1 | 2,
+    variant: CustomerVariant,
   ): CustomerData {
     return {
       id,
       orders,
       pending: [...orders],
       posIndex,
+      variant,
       enterPhase: 0,
       waitProgress: 0,
     };
+  }
+
+  function pickCustomerVariant(activeCustomers: CustomerData[]) {
+    const used = new Set(
+      activeCustomers.map((customer) => customer.variant),
+    );
+    const available = CUSTOMER_IMGS
+      .map((_, index) => index)
+      .filter((index) => !used.has(index));
+    const pool = available.length > 0
+      ? available
+      : CUSTOMER_IMGS.map((_, index) => index);
+    return pool[Math.floor(Math.random() * pool.length)];
   }
 
   // ── Auto-spawn: poll every 700 ms, spawn if a slot is open (§7) ──────────
@@ -443,9 +498,10 @@ export default function App() {
         return;
       setCustomers((prev) => {
         const stage = getCurrentStage(timeLeftRef.current);
-        const activeCnt = prev.filter(
+        const activeCustomers = prev.filter(
           (c) => !leavingRef.current.has(c.id),
-        ).length;
+        );
+        const activeCnt = activeCustomers.length;
         if (activeCnt >= stage.maxCustomers) return prev; // same ref → no re-render
         const used = new Set(prev.map((c) => c.posIndex));
         const free = ([0, 1, 2] as const).find(
@@ -458,6 +514,7 @@ export default function App() {
             nextId(),
             randomOrders(timeLeftRef.current),
             free,
+            pickCustomerVariant(activeCustomers),
           ),
         ];
       });
@@ -809,12 +866,32 @@ export default function App() {
   const signImg = SIGN_IMGS[selectedSign];
   const signColor = SIGN_COLORS[selectedSign];
   const inputsLocked = isMaking || gamePhase !== "playing";
+  const showGameBackground = gamePhase === "playing";
+  const backgroundFrameWidth =
+    showGameBackground
+      ? `calc(100dvh * ${BG_WIDTH / BG_HEIGHT})`
+      : `calc(100dvh * ${HOME_WIDTH / BG_HEIGHT})`;
 
   return (
     <>
       <style>{`
-        html, body { margin: 0; padding: 0; width: 100vw; height: 100dvh; overflow: hidden; position: fixed; inset: 0; }
-        #root { width: 100vw; height: 100dvh; overflow: hidden; }
+        html, body {
+          margin: 0;
+          padding: 0;
+          width: 100vw;
+          height: 100dvh;
+          overflow: hidden;
+          position: fixed;
+          inset: 0;
+          overscroll-behavior: none;
+        }
+        #root,
+        .game-root {
+          width: 100vw;
+          height: 100dvh;
+          overflow: hidden;
+          overscroll-behavior: none;
+        }
 
         @keyframes charEnter {
           from { transform: translateY(80px); opacity: 0; }
@@ -932,34 +1009,97 @@ export default function App() {
       )}
 
       <div
+        className="game-root"
         onContextMenu={(event) => event.preventDefault()}
         style={{
           position: "fixed",
           inset: 0,
           display: "flex",
           justifyContent: "center",
+          alignItems: "flex-start",
           overflow: "hidden",
+          background: "#000",
         }}
       >
-        {/* Full-screen background — behind everything */}
+        {/* Full-screen background frame: scale by original 1680 height, crop width only. */}
         <div
           style={{
             position: "absolute",
-            inset: 0,
-            background: "#000",
+            left: "50%",
+            top: 0,
+            width: backgroundFrameWidth,
+            height: "100dvh",
+            transform: "translateX(-50%)",
             zIndex: 0,
+            pointerEvents: "none",
           }}
-        />
+        >
+          <img
+            alt=""
+            src={showGameBackground ? imgBgMain : imgHomeBg}
+            style={{
+              position: "absolute",
+              left: 0,
+              top: 0,
+              width: "100%",
+              height: "100%",
+              objectFit: "fill",
+              pointerEvents: "none",
+            }}
+          />
+        </div>
+        {showGameBackground && (
+          <div
+            style={{
+              position: "absolute",
+              left: "50%",
+              top: `calc(100dvh * ${COUNTER_TOP / BG_HEIGHT})`,
+              width: backgroundFrameWidth,
+              height: `calc(100dvh * ${COUNTER_HEIGHT / BG_HEIGHT})`,
+              transform: "translateX(-50%)",
+              zIndex: 1,
+              pointerEvents: "none",
+            }}
+          >
+            <img
+              alt=""
+              src={imgCounterFrontPng}
+              style={{
+                position: "absolute",
+                left: 0,
+                top: 0,
+                width: "100%",
+                height: "100%",
+                objectFit: "fill",
+                pointerEvents: "none",
+              }}
+            />
+          </div>
+        )}
+        {(gamePhase === "sign_select" || gamePhase === "over") && (
+          <div
+            style={{
+              position: "fixed",
+              inset: 0,
+              zIndex: 3,
+              background: "rgba(0,0,0,0.8)",
+              pointerEvents: "none",
+            }}
+          />
+        )}
 
         <div
           className="game-stage"
           ref={wrapperRef}
           style={{
             position: "relative",
-            zIndex: 1,
-            width: "100%",
-            height: "100dvh",
+            zIndex: 4,
+            width: `min(100vw, ${STAGE_MAX_WIDTH}px)`,
+            minWidth: 0,
+            maxWidth: STAGE_MAX_WIDTH,
+            height: "calc(100dvh - env(safe-area-inset-bottom))",
             overflow: "hidden",
+            flex: "0 0 auto",
           }}
         >
             <div
@@ -967,37 +1107,24 @@ export default function App() {
                 position: "absolute",
                 top: 0,
                 left: layout.offsetLeft,
-                width: 750,
-                height: 1680,
+                width: DESIGN_WIDTH,
+                height: DESIGN_HEIGHT,
                 transformOrigin: "top left",
                 transform: `scale(${layout.scale})`,
               }}
             >
-              {/* ── bg_main — 750×1680, positioned at (0,0) inside the canvas ── */}
-              <img
-                src={imgBgMain}
-                alt=""
-                style={{
-                  position: "absolute",
-                  left: 0,
-                  top: 0,
-                  width: 750,
-                  height: 1680,
-                  pointerEvents: "none",
-                  zIndex: 0,
-                }}
-              />
-
-              {/* ── Customers + emotions + bubbles — behind counter (zIndex 3) ── */}
-              <div
-                style={{
-                  position: "absolute",
-                  inset: 0,
-                  zIndex: 3,
-                  pointerEvents: "none",
-                }}
-              >
-                {([0, 1, 2] as const).map((posIndex) => {
+              {gamePhase === "playing" && (
+                <>
+                  {/* ── Customers + emotions + bubbles — behind counter (zIndex 3) ── */}
+                  <div
+                    style={{
+                      position: "absolute",
+                      inset: 0,
+                      zIndex: 3,
+                      pointerEvents: "none",
+                    }}
+                  >
+                    {([0, 1, 2] as const).map((posIndex) => {
                   const customer = customers.find(
                     (c) => c.posIndex === posIndex,
                   );
@@ -1086,7 +1213,7 @@ export default function App() {
                       >
                         <img
                           alt=""
-                          src={imgCustomerLemon}
+                          src={CUSTOMER_IMGS[customer.variant]}
                           style={ASSET_IMG}
                         />
                       </div>
@@ -1113,26 +1240,34 @@ export default function App() {
                       )}
                     </div>
                   );
-                })}
-              </div>
+                    })}
+                  </div>
 
-              {/* ── Counter front — zIndex 4 ── */}
-              <div
-                style={{
-                  position: "absolute",
-                  left: 0,
-                  top: 600,
-                  width: 750,
-                  height: 1049,
-                  zIndex: 4,
-                }}
-              >
-                <img
-                  alt=""
-                  src={imgCounterFrontPng}
-                  style={ASSET_IMG}
-                />
-              </div>
+                  {/* Counter occluder inside the UI stage: customers stay below it. */}
+                  <div
+                    style={{
+                      position: "absolute",
+                      left: (DESIGN_WIDTH - BG_WIDTH) / 2,
+                      top: COUNTER_TOP,
+                      width: BG_WIDTH,
+                      height: COUNTER_HEIGHT,
+                      zIndex: 4,
+                      pointerEvents: "none",
+                    }}
+                  >
+                    <img
+                      alt=""
+                      src={imgCounterFrontPng}
+                      style={{
+                        position: "absolute",
+                        inset: 0,
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "fill",
+                        pointerEvents: "none",
+                      }}
+                    />
+                  </div>
 
               {/* ── Success burst — quick lemon flash on completed dishes ── */}
               {successBursts.map((burst) => {
@@ -1234,26 +1369,7 @@ export default function App() {
                 );
               })}
 
-              {/* ── Buttons — zIndex 6 ── */}
-              <div
-                onClick={handleRestart}
-                style={{
-                  position: "absolute",
-                  left: 0,
-                  top: 1339,
-                  width: 189,
-                  height: 90,
-                  zIndex: 6,
-                  cursor: "pointer",
-                }}
-              >
-                <img
-                  alt="重新开始"
-                  src={imgButtonRestart}
-                  style={ASSET_IMG}
-                />
-              </div>
-
+              {/* ── Make button — zIndex 6 ── */}
               <div
                 onClick={handleMake}
                 style={{
@@ -1364,27 +1480,6 @@ export default function App() {
                     </span>
                   </>
                 )}
-              </div>
-
-              <div
-                onClick={() => {
-                  if (!inputsLocked) setSelected(new Set());
-                }}
-                style={{
-                  position: "absolute",
-                  left: 559,
-                  top: 1339,
-                  width: 189,
-                  height: 90,
-                  zIndex: 6,
-                  cursor: "pointer",
-                }}
-              >
-                <img
-                  alt="清空选项"
-                  src={imgButtonClear}
-                  style={ASSET_IMG}
-                />
               </div>
 
               {/* ── Header: sign ── */}
@@ -1664,6 +1759,8 @@ export default function App() {
               })}
 
               {/* Feedback flash removed — using coin popups instead */}
+                </>
+              )}
 
               {/* ── Start screen — Figma HomePage (750×1680, 1:1 with canvas) ── */}
               {gamePhase === "start" && (
@@ -1675,20 +1772,6 @@ export default function App() {
                     animation: "fadeIn 0.4s ease",
                   }}
                 >
-                  {/* Background */}
-                  <img
-                    alt=""
-                    src={imgHomeBg}
-                    style={{
-                      position: "absolute",
-                      inset: 0,
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                      pointerEvents: "none",
-                    }}
-                  />
-
                   {/* ButtonStart — Figma: centered, top=931, w=500, h=260 */}
                   <div
                     onClick={() => {
@@ -1786,27 +1869,6 @@ export default function App() {
                     zIndex: 150,
                   }}
                 >
-                  {/* Homepage background (same as start screen) */}
-                  <img
-                    alt=""
-                    src={imgHomeBg}
-                    style={{
-                      position: "absolute",
-                      inset: 0,
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                      pointerEvents: "none",
-                    }}
-                  />
-                  {/* 80% black overlay */}
-                  <div
-                    style={{
-                      position: "absolute",
-                      inset: 0,
-                      background: "rgba(0,0,0,0.8)",
-                    }}
-                  />
                   {/* Frame card */}
                   <div
                     style={{
@@ -2020,7 +2082,6 @@ export default function App() {
                     inset: 0,
                     zIndex: 200,
                     animation: "fadeIn 0.4s ease",
-                    background: "rgba(0, 0, 0, 0.8)",
                   }}
                 >
                   {/* finallist frame — coordinates match the 648px Figma result artboard */}
@@ -2117,6 +2178,48 @@ export default function App() {
             </div>
             {/* end canvas */}
         </div>
+        {gamePhase === "playing" && (
+          <>
+            <div
+              onClick={handleRestart}
+              style={{
+                position: "absolute",
+                left: 0,
+                top: 1339 * layout.scale,
+                width: 189 * layout.scale,
+                height: 90 * layout.scale,
+                zIndex: 20,
+                cursor: "pointer",
+              }}
+            >
+              <img
+                alt="重新开始"
+                src={imgButtonRestart}
+                style={ASSET_IMG}
+              />
+            </div>
+            <div
+              onClick={() => {
+                if (!inputsLocked) setSelected(new Set());
+              }}
+              style={{
+                position: "absolute",
+                right: 0,
+                top: 1339 * layout.scale,
+                width: 189 * layout.scale,
+                height: 90 * layout.scale,
+                zIndex: 20,
+                cursor: inputsLocked ? "default" : "pointer",
+              }}
+            >
+              <img
+                alt="清空选项"
+                src={imgButtonClear}
+                style={ASSET_IMG}
+              />
+            </div>
+          </>
+        )}
       </div>
     </>
   );
