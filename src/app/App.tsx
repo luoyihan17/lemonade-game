@@ -330,6 +330,10 @@ export default function App() {
   const [layout, setLayout] = useState({
     scale: 0.5,
     offsetLeft: 0,
+    counterLeft: 0,
+    counterTop: COUNTER_TOP,
+    counterWidth: BG_WIDTH,
+    counterHeight: COUNTER_HEIGHT,
   });
   const [isLandscape, setIsLandscape] = useState(false);
 
@@ -351,11 +355,38 @@ export default function App() {
         0,
         (w - DESIGN_WIDTH * finalScale) / 2,
       );
+      const rect = el.getBoundingClientRect();
+      const bgScreenWidth =
+        window.innerHeight * (BG_WIDTH / BG_HEIGHT);
+      const counterScreenTop =
+        window.innerHeight * (COUNTER_TOP / BG_HEIGHT);
+      const counterScreenHeight =
+        window.innerHeight * (COUNTER_HEIGHT / BG_HEIGHT);
+      const counterLeft =
+        (window.innerWidth / 2 -
+          bgScreenWidth / 2 -
+          rect.left -
+          left) /
+        finalScale;
+      const counterTop = counterScreenTop / finalScale;
+      const counterWidth = bgScreenWidth / finalScale;
+      const counterHeight = counterScreenHeight / finalScale;
       setLayout((prev) =>
         Math.abs(prev.scale - finalScale) < 0.0001 &&
-        Math.abs(prev.offsetLeft - left) < 0.5
+        Math.abs(prev.offsetLeft - left) < 0.5 &&
+        Math.abs(prev.counterLeft - counterLeft) < 0.5 &&
+        Math.abs(prev.counterTop - counterTop) < 0.5 &&
+        Math.abs(prev.counterWidth - counterWidth) < 0.5 &&
+        Math.abs(prev.counterHeight - counterHeight) < 0.5
           ? prev
-          : { scale: finalScale, offsetLeft: left },
+          : {
+              scale: finalScale,
+              offsetLeft: left,
+              counterLeft,
+              counterTop,
+              counterWidth,
+              counterHeight,
+            },
       );
     };
     measure();
@@ -1038,34 +1069,6 @@ export default function App() {
             }}
           />
         </div>
-        {showGameBackground && (
-          <div
-            style={{
-              position: "absolute",
-              left: "50%",
-              top: `calc(100dvh * ${COUNTER_TOP / BG_HEIGHT})`,
-              width: backgroundFrameWidth,
-              height: `calc(100dvh * ${COUNTER_HEIGHT / BG_HEIGHT})`,
-              transform: "translateX(-50%)",
-              zIndex: 1,
-              pointerEvents: "none",
-            }}
-          >
-            <img
-              alt=""
-              src={imgCounterFrontPng}
-              style={{
-                position: "absolute",
-                left: 0,
-                top: 0,
-                width: "100%",
-                height: "100%",
-                objectFit: "fill",
-                pointerEvents: "none",
-              }}
-            />
-          </div>
-        )}
         {(gamePhase === "sign_select" || gamePhase === "over") && (
           <div
             style={{
@@ -1088,7 +1091,7 @@ export default function App() {
             minWidth: 0,
             maxWidth: STAGE_MAX_WIDTH,
             height: "calc(100dvh - env(safe-area-inset-bottom))",
-            overflow: "hidden",
+            overflow: "visible",
             flex: "0 0 auto",
           }}
         >
@@ -1237,10 +1240,10 @@ export default function App() {
                   <div
                     style={{
                       position: "absolute",
-                      left: (DESIGN_WIDTH - BG_WIDTH) / 2,
-                      top: COUNTER_TOP,
-                      width: BG_WIDTH,
-                      height: COUNTER_HEIGHT,
+                      left: layout.counterLeft,
+                      top: layout.counterTop,
+                      width: layout.counterWidth,
+                      height: layout.counterHeight,
                       zIndex: 4,
                       pointerEvents: "none",
                     }}
