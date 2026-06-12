@@ -45,6 +45,7 @@ import {
   DISH_SLOTS,
   EMOTION_POS,
   HOME_WIDTH,
+  HUD_LAYOUT,
   INGREDIENTS,
   MAKE_DURATION_MS,
   RECIPES,
@@ -85,6 +86,102 @@ const ASSET_IMG: React.CSSProperties = {
   objectFit: "contain",
   pointerEvents: "none",
 };
+
+type HudLayerProps = {
+  coins: number;
+  timeLeft: number;
+  musicOn: boolean;
+  onToggleMusic: () => void;
+};
+
+function HudLayer({ coins, timeLeft, musicOn, onToggleMusic }: HudLayerProps) {
+  const valueStyle: React.CSSProperties = {
+    position: "absolute",
+    top: HUD_LAYOUT.top + HUD_LAYOUT.valueTopOffset,
+    height: HUD_LAYOUT.coinValue.height,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    pointerEvents: "none",
+  };
+
+  const textStyle: React.CSSProperties = {
+    fontFamily: "'PingFang SC',sans-serif",
+    fontWeight: 600,
+    fontSize: 24,
+    color: "#DEF000",
+  };
+
+  return (
+    <div style={{ position: "absolute", inset: 0, zIndex: 8 }}>
+      <div
+        style={{
+          position: "absolute",
+          left: HUD_LAYOUT.coin.left,
+          top: HUD_LAYOUT.top,
+          width: HUD_LAYOUT.coin.width,
+          height: HUD_LAYOUT.coin.height,
+        }}
+      >
+        <img alt="" src={imgCoinIcon} style={ASSET_IMG} />
+      </div>
+      <div
+        style={{
+          ...valueStyle,
+          left: HUD_LAYOUT.coinValue.left,
+          width: HUD_LAYOUT.coinValue.width,
+        }}
+      >
+        <span style={textStyle}>{coins}</span>
+      </div>
+
+      <div
+        style={{
+          position: "absolute",
+          left: HUD_LAYOUT.timer.left,
+          top: HUD_LAYOUT.top,
+          width: HUD_LAYOUT.timer.width,
+          height: HUD_LAYOUT.timer.height,
+        }}
+      >
+        <img alt="" src={imgTimerIcon} style={ASSET_IMG} />
+      </div>
+      <div
+        style={{
+          ...valueStyle,
+          left: HUD_LAYOUT.timerValue.left,
+          width: HUD_LAYOUT.timerValue.width,
+        }}
+      >
+        <span
+          style={{
+            ...textStyle,
+            color: timeLeft <= 30 ? "#FF5555" : "#DEF000",
+            transition: "color 0.3s",
+          }}
+        >
+          {formatTime(timeLeft)}
+        </span>
+      </div>
+
+      <div
+        onClick={onToggleMusic}
+        style={{
+          position: "absolute",
+          left: HUD_LAYOUT.music.left,
+          top: HUD_LAYOUT.top,
+          width: HUD_LAYOUT.music.width,
+          height: HUD_LAYOUT.music.height,
+          cursor: "pointer",
+          opacity: musicOn ? 1 : 0.35,
+          transition: "opacity 0.2s",
+        }}
+      >
+        <img alt="music" src={imgMusicIcon} style={ASSET_IMG} />
+      </div>
+    </div>
+  );
+}
 
 // ── Component ──────────────────────────────────────────────────────────────────
 export default function App() {
@@ -1223,89 +1320,12 @@ export default function App() {
                 />
               </div>
 
-              {/* ── Header: coin ── */}
-              <div
-                style={{
-                  position: "absolute",
-                  left: 294,
-                  top: 244,
-                  width: 168,
-                  height: 60,
-                }}
-              >
-                <img
-                  alt=""
-                  src={imgCoinIcon}
-                  style={ASSET_IMG}
-                />
-              </div>
-              <div
-                style={{
-                  position: "absolute",
-                  left: 349,
-                  top: 249,
-                  width: 113,
-                  height: 50,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  pointerEvents: "none",
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: "'PingFang SC',sans-serif",
-                    fontWeight: 600,
-                    fontSize: 24,
-                    color: "#DEF000",
-                  }}
-                >
-                  {coins}
-                </span>
-              </div>
-
-              {/* ── Header: timer ── */}
-              <div
-                style={{
-                  position: "absolute",
-                  left: 482,
-                  top: 244,
-                  width: 168,
-                  height: 60,
-                }}
-              >
-                <img
-                  alt=""
-                  src={imgTimerIcon}
-                  style={ASSET_IMG}
-                />
-              </div>
-              <div
-                style={{
-                  position: "absolute",
-                  left: 540,
-                  top: 249,
-                  width: 110,
-                  height: 50,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  pointerEvents: "none",
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: "'PingFang SC',sans-serif",
-                    fontWeight: 600,
-                    fontSize: 24,
-                    color:
-                      timeLeft <= 30 ? "#FF5555" : "#DEF000",
-                    transition: "color 0.3s",
-                  }}
-                >
-                  {formatTime(timeLeft)}
-                </span>
-              </div>
+              <HudLayer
+                coins={coins}
+                timeLeft={timeLeft}
+                musicOn={musicOn}
+                onToggleMusic={() => setMusicOn((v) => !v)}
+              />
 
               {/* ── Combo banner ── */}
               {comboToast && (
@@ -1372,27 +1392,6 @@ export default function App() {
                   </span>
                 </div>
               )}
-
-              {/* ── Header: music ── */}
-              <div
-                onClick={() => setMusicOn((v) => !v)}
-                style={{
-                  position: "absolute",
-                  left: 670,
-                  top: 244,
-                  width: 60,
-                  height: 60,
-                  cursor: "pointer",
-                  opacity: musicOn ? 1 : 0.35,
-                  transition: "opacity 0.2s",
-                }}
-              >
-                <img
-                  alt="music"
-                  src={imgMusicIcon}
-                  style={ASSET_IMG}
-                />
-              </div>
 
               {/* ── Support text ── */}
               <p
