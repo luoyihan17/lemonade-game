@@ -247,28 +247,28 @@ const INGREDIENTS = [
     img: imgIngredientLemon,
     label: "柠檬片",
     left: 165,
-    top: 816,
+    top: 844,
   },
   {
     type: "water" as IngredientType,
     img: imgIngredientWater,
     label: "水",
     left: 385,
-    top: 816,
+    top: 844,
   },
   {
     type: "egg" as IngredientType,
     img: imgIngredientEgg,
     label: "鸡蛋",
     left: 165,
-    top: 1036,
+    top: 1064,
   },
   {
     type: "tea" as IngredientType,
     img: imgIngredientTea,
     label: "茶",
     left: 385,
-    top: 1036,
+    top: 1064,
   },
 ];
 
@@ -317,8 +317,8 @@ const DESIGN_WIDTH = 750;
 const DESIGN_HEIGHT = 1680;
 const BG_WIDTH = 1680;
 const BG_HEIGHT = 1680;
-const COUNTER_TOP = 600;
 const COUNTER_HEIGHT = 1049;
+const COUNTER_TOP = DESIGN_HEIGHT - COUNTER_HEIGHT;
 const HOME_WIDTH = 1560;
 const STAGE_BASE_WIDTH = 390;
 const STAGE_BASE_HEIGHT = 844;
@@ -330,10 +330,6 @@ export default function App() {
   const [layout, setLayout] = useState({
     scale: 0.5,
     offsetLeft: 0,
-    counterLeft: 0,
-    counterTop: COUNTER_TOP,
-    counterWidth: BG_WIDTH,
-    counterHeight: COUNTER_HEIGHT,
   });
   const [isLandscape, setIsLandscape] = useState(false);
 
@@ -355,38 +351,11 @@ export default function App() {
         0,
         (w - DESIGN_WIDTH * finalScale) / 2,
       );
-      const rect = el.getBoundingClientRect();
-      const bgScreenWidth =
-        window.innerHeight * (BG_WIDTH / BG_HEIGHT);
-      const counterScreenTop =
-        window.innerHeight * (COUNTER_TOP / BG_HEIGHT);
-      const counterScreenHeight =
-        window.innerHeight * (COUNTER_HEIGHT / BG_HEIGHT);
-      const counterLeft =
-        (window.innerWidth / 2 -
-          bgScreenWidth / 2 -
-          rect.left -
-          left) /
-        finalScale;
-      const counterTop = counterScreenTop / finalScale;
-      const counterWidth = bgScreenWidth / finalScale;
-      const counterHeight = counterScreenHeight / finalScale;
       setLayout((prev) =>
         Math.abs(prev.scale - finalScale) < 0.0001 &&
-        Math.abs(prev.offsetLeft - left) < 0.5 &&
-        Math.abs(prev.counterLeft - counterLeft) < 0.5 &&
-        Math.abs(prev.counterTop - counterTop) < 0.5 &&
-        Math.abs(prev.counterWidth - counterWidth) < 0.5 &&
-        Math.abs(prev.counterHeight - counterHeight) < 0.5
+        Math.abs(prev.offsetLeft - left) < 0.5
           ? prev
-          : {
-              scale: finalScale,
-              offsetLeft: left,
-              counterLeft,
-              counterTop,
-              counterWidth,
-              counterHeight,
-            },
+          : { scale: finalScale, offsetLeft: left },
       );
     };
     measure();
@@ -1240,10 +1209,10 @@ export default function App() {
                   <div
                     style={{
                       position: "absolute",
-                      left: layout.counterLeft,
-                      top: layout.counterTop,
-                      width: layout.counterWidth,
-                      height: layout.counterHeight,
+                      left: (DESIGN_WIDTH - BG_WIDTH) / 2,
+                      top: COUNTER_TOP,
+                      width: BG_WIDTH,
+                      height: COUNTER_HEIGHT,
                       zIndex: 4,
                       pointerEvents: "none",
                     }}
