@@ -77,7 +77,7 @@ export const EMOTION_POS = [
 export const HUD_LAYOUT = {
   // Keep HUD in one configurable layer so mobile tuning does not require
   // hunting through the game JSX.
-  top: 232,
+  top: 244,
   coin: { left: 294, width: 168, height: 60 },
   coinValue: { left: 349, width: 113, height: 50 },
   timer: { left: 482, width: 168, height: 60 },
